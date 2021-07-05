@@ -8,8 +8,27 @@ enum AppTheme {
 
 class ThemeNotifier extends ChangeNotifier {
   static final _themes = <AppTheme, ThemeData>{
-    AppTheme.red: ThemeData(primarySwatch: Colors.red),
-    AppTheme.indigo: ThemeData(primarySwatch: Colors.indigo),
+    AppTheme.red: ThemeData(
+      primarySwatch: Colors.red,
+      accentColor: Colors.amber,
+      textTheme: TextTheme(
+        button: const TextStyle(
+          fontSize: 16,
+        ),
+        headline3: ThemeData.light().textTheme.headline3!.copyWith(
+              color: Colors.pink[900],
+            ),
+      ),
+    ),
+    AppTheme.indigo: ThemeData(
+      primarySwatch: Colors.indigo,
+      accentColor: Colors.blue,
+      textTheme: TextTheme(
+        headline3: ThemeData.light().textTheme.headline3!.copyWith(
+              color: Colors.indigo[900],
+            ),
+      ),
+    ),
   };
 
   // Private state :

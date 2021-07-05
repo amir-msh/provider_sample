@@ -30,10 +30,13 @@ class HomePage extends StatelessWidget {
             // Listening to a specific state change :
             Selector<Counter, int>(
               selector: (context, value) => value.half,
-              builder: (context, value, child) => RebuildViewer(
-                child: Text(
-                  '$value',
-                  style: Theme.of(context).textTheme.headline3,
+              builder: (context, value, child) => Theme(
+                data: Theme.of(context),
+                child: RebuildViewer(
+                  child: Text(
+                    '$value',
+                    style: Theme.of(context).textTheme.headline3,
+                  ),
                 ),
               ),
             ),
@@ -65,7 +68,7 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 5),
             FloatingActionButton(
               onPressed: () => context.read<Counter>().decrement(),
-              tooltip: 'Increment',
+              tooltip: 'Decrement',
               child: Icon(
                 Icons.remove,
               ),
